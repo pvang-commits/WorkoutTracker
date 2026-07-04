@@ -2,14 +2,18 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var templates: [WorkoutTemplate] = []
+    @State private var exerciseLibrary: [Exercise] = []
     @State private var showingAddTemplate = false
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach(templates) { template in
+                ForEach($templates) { $template in
                     NavigationLink {
-                        TemplateDetailView(template: template)
+                        TemplateDetailView(
+                            template: $template,
+                            exerciseLibrary: $exerciseLibrary
+                        )
                     } label: {
                         Text(template.name)
                     }
@@ -25,8 +29,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingAddTemplate) {
                 AddTemplateView { name in
-                    let newTemplate = WorkoutTemplate(name: name)
-                    templates.append(newTemplate)
+                    templates.append(WorkoutTemplate(name: name))
                 }
             }
         }

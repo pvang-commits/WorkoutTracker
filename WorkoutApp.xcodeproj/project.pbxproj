@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		980822462FF9A33B002DB695 /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822452FF9A32A002DB695 /* TemplateDetailView.swift */; };
 		980822482FF9A3FC002DB695 /* TemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822472FF9A3E6002DB695 /* TemplateViewModel.swift */; };
+		9808224A2FF9B912002DB695 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822492FF9B90D002DB695 /* AddExerciseView.swift */; };
+		9808224C2FF9BAA7002DB695 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808224B2FF9BAA4002DB695 /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		980822272FF99D6F002DB695 /* WorkoutAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkoutAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		980822452FF9A32A002DB695 /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
 		980822472FF9A3E6002DB695 /* TemplateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewModel.swift; sourceTree = "<group>"; };
+		980822492FF9B90D002DB695 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
+		9808224B2FF9BAA4002DB695 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -104,6 +108,7 @@
 		9808223A2FF99EB0002DB695 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9808224B2FF9BAA4002DB695 /* Exercise.swift */,
 				980822472FF9A3E6002DB695 /* TemplateViewModel.swift */,
 			);
 			path = Models;
@@ -112,6 +117,7 @@
 		9808223D2FF99F28002DB695 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				980822492FF9B90D002DB695 /* AddExerciseView.swift */,
 				980822452FF9A32A002DB695 /* TemplateDetailView.swift */,
 			);
 			path = Views;
@@ -262,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				980822462FF9A33B002DB695 /* TemplateDetailView.swift in Sources */,
+				9808224A2FF9B912002DB695 /* AddExerciseView.swift in Sources */,
 				980822482FF9A3FC002DB695 /* TemplateViewModel.swift in Sources */,
+				9808224C2FF9BAA7002DB695 /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

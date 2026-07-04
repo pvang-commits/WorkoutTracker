@@ -7,8 +7,8 @@ class TemplateViewModel: ObservableObject {
         self.template = template
     }
 
-    func addExercise(named name: String) {
-        let exercise = WorkoutExercise(name: name)
-        template.exercises.append(exercise)
+    func addExercise(_ exercise: Exercise) {
+        let workoutExercise = WorkoutExercise(exercise: exercise)
+        template.exercises.append(workoutExercise)
     }
 }
