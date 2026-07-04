@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		980822462FF9A33B002DB695 /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822452FF9A32A002DB695 /* TemplateDetailView.swift */; };
+		980822482FF9A3FC002DB695 /* TemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822472FF9A3E6002DB695 /* TemplateViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9808221E2FF99D6F002DB695 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		9808220E2FF99D6E002DB695 /* WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9808221D2FF99D6F002DB695 /* WorkoutAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkoutAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		980822272FF99D6F002DB695 /* WorkoutAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkoutAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		980822452FF9A32A002DB695 /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
+		980822472FF9A3E6002DB695 /* TemplateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +82,8 @@
 		980822052FF99D6E002DB695 = {
 			isa = PBXGroup;
 			children = (
+				9808223D2FF99F28002DB695 /* Views */,
+				9808223A2FF99EB0002DB695 /* Models */,
 				980822102FF99D6E002DB695 /* WorkoutApp */,
 				980822202FF99D6F002DB695 /* WorkoutAppTests */,
 				9808222A2FF99D6F002DB695 /* WorkoutAppUITests */,
@@ -90,6 +99,22 @@
 				980822272FF99D6F002DB695 /* WorkoutAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9808223A2FF99EB0002DB695 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				980822472FF9A3E6002DB695 /* TemplateViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9808223D2FF99F28002DB695 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				980822452FF9A32A002DB695 /* TemplateDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				980822462FF9A33B002DB695 /* TemplateDetailView.swift in Sources */,
+				980822482FF9A3FC002DB695 /* TemplateViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

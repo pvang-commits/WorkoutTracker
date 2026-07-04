@@ -1,55 +1,33 @@
-//
-//  ContentView.swift
-//  WorkoutApp
-//
-//  Created by Prabhav Vanguri on 7/4/26.
-//
-
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @State private var templates: [WorkoutTemplate] = []
+    @State private var showingAddTemplate = false
 
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
-                ForEach(items) { item in
+                ForEach(templates) { template in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        TemplateDetailView(template: template)
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text(template.name)
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
+            .navigationTitle("Templates")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                Button {
+                    showingAddTemplate = true
+                } label: {
+                    Image(systemName: "plus")
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            .sheet(isPresented: $showingAddTemplate) {
+                AddTemplateView { name in
+                    let newTemplate = WorkoutTemplate(name: name)
+                    templates.append(newTemplate)
+                }
             }
         }
     }
@@ -57,5 +35,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
