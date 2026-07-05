@@ -6,11 +6,23 @@ struct TemplateDetailView: View {
 
     @State private var showingAddExercise = false
     @State private var showingWorkout = false
+    @State private var showingRenameTemplate = false
+    @State private var exerciseToRename: Exercise?
 
     var body: some View {
         List {
             ForEach(template.exercises) { templateExercise in
-                Text(templateExercise.exercise.name)
+                Button {
+                    exerciseToRename = templateExercise.exercise
+                } label: {
+                    Text(templateExercise.exercise.name)
+                }
+            }
+            .onDelete { indexSet in
+                template.exercises.remove(atOffsets: indexSet)
+            }
+            .onMove { source, destination in
+                template.exercises.move(fromOffsets: source, toOffset: destination)
             }
 
             Section {
@@ -24,12 +36,24 @@ struct TemplateDetailView: View {
         }
         .navigationTitle(template.name)
         .toolbar {
-            Button {
-                showingAddExercise = true
-            } label: {
-                Image(systemName: "plus")
+            ToolbarItem(placement: .topBarLeading) {
+                EditButton()
+            }
+
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showingAddExercise = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            ToolbarItem(placement: .principal) {
+                Button(template.name) {
+                    showingRenameTemplate = true
+                }
             }
         }
+        
         .sheet(isPresented: $showingAddExercise) {
             AddExerciseView(existingExercises: appData.exerciseLibrary) { exercise in
                 appData.addExerciseToLibraryIfNeeded(exercise)
@@ -39,6 +63,15 @@ struct TemplateDetailView: View {
                 )
             }
         }
+        
+        .sheet(isPresented: $showingRenameTemplate) {
+            RenameTemplateView(template: $template)
+        }
+        
+        .sheet(item: $exerciseToRename) { exercise in
+            RenameExerciseView(exercise: exercise)
+        }
+        
         .navigationDestination(isPresented: $showingWorkout) {
             WorkoutView()
         }

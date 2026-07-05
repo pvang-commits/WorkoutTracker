@@ -2,6 +2,7 @@ import SwiftUI
 
 struct LoggedSetRow: View {
     @Binding var set: LoggedSet
+    var previousSet: LoggedSet?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,8 +28,11 @@ struct LoggedSetRow: View {
                     }
             }
 
-            if let weight = set.weight, let reps = set.reps {
-                Text("Parsed: \(weight, specifier: "%.0f") lb × \(reps)")
+
+            if let previousSet = previousSet,
+               let previousWeight = previousSet.weight,
+               let previousReps = previousSet.reps {
+                Text("Previous: \(String(format: "%.0f", previousWeight)) lb × \(previousReps)")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -39,6 +43,6 @@ struct LoggedSetRow: View {
 #Preview {
     @Previewable @State var set = LoggedSet()
 
-    LoggedSetRow(set: $set)
+    LoggedSetRow(set: $set, previousSet: nil)
         .padding()
 }

@@ -1,7 +1,7 @@
 import Foundation
 
-struct WorkoutTemplate: Identifiable {
-    let id = UUID()
+struct WorkoutTemplate: Identifiable, Codable {
+    var id = UUID()
     var name: String
     var exercises: [TemplateExercise] = []
 }

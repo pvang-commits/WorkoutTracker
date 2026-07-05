@@ -1,7 +1,7 @@
 import Foundation
 
-struct LoggedSet: Identifiable {
-    let id = UUID()
+struct LoggedSet: Identifiable, Codable {
+    var id = UUID()
     var tag: SetTag = .working
     var rawInput: String = ""
     var weight: Double?

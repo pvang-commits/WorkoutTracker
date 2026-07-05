@@ -14,13 +14,33 @@ struct ContentView: View {
                         Text(template.name)
                     }
                 }
+                .onDelete { indexSet in
+                    appData.templates.remove(atOffsets: indexSet)
+                }
             }
             .navigationTitle("Templates")
             .toolbar {
-                Button {
-                    showingAddTemplate = true
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink {
+                        HistoryView()
+                    } label: {
+                        Image(systemName: "clock")
+                    }
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showingAddTemplate = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink {
+                        ExerciseLibraryView()
+                    } label: {
+                        Image(systemName: "dumbbell")
+                    }
                 }
             }
             .sheet(isPresented: $showingAddTemplate) {

@@ -1,6 +1,6 @@
 import Foundation
 
-struct TemplateExercise: Identifiable {
-    let id = UUID()
+struct TemplateExercise: Identifiable, Codable {
+    var id = UUID()
     var exercise: Exercise
 }

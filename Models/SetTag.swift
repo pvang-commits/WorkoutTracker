@@ -1,6 +1,6 @@
 import Foundation
 
-enum SetTag: String, CaseIterable, Identifiable {
+enum SetTag: String, CaseIterable, Identifiable, Codable {
     case warmup
     case working
     case drop
