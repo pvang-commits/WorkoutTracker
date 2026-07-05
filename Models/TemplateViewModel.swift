@@ -1,3 +1,5 @@
+/*
+
 import Foundation
 
 class TemplateViewModel: ObservableObject {
@@ -12,3 +14,5 @@ class TemplateViewModel: ObservableObject {
         template.exercises.append(workoutExercise)
     }
 }
+*/
+

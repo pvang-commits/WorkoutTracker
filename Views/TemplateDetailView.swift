@@ -1,15 +1,25 @@
 import SwiftUI
 
 struct TemplateDetailView: View {
+    @EnvironmentObject var appData: AppData
     @Binding var template: WorkoutTemplate
-    @Binding var exerciseLibrary: [Exercise]
 
     @State private var showingAddExercise = false
+    @State private var showingWorkout = false
 
     var body: some View {
         List {
-            ForEach(template.exercises) { workoutExercise in
-                Text(workoutExercise.exercise.name)
+            ForEach(template.exercises) { templateExercise in
+                Text(templateExercise.exercise.name)
+            }
+
+            Section {
+                Button {
+                    appData.startWorkout(from: template)
+                    showingWorkout = true
+                } label: {
+                    Label("Start Workout", systemImage: "play.fill")
+                }
             }
         }
         .navigationTitle(template.name)
@@ -21,15 +31,16 @@ struct TemplateDetailView: View {
             }
         }
         .sheet(isPresented: $showingAddExercise) {
-            AddExerciseView(existingExercises: exerciseLibrary) { exercise in
-                if !exerciseLibrary.contains(exercise) {
-                    exerciseLibrary.append(exercise)
-                }
+            AddExerciseView(existingExercises: appData.exerciseLibrary) { exercise in
+                appData.addExerciseToLibraryIfNeeded(exercise)
 
                 template.exercises.append(
-                    WorkoutExercise(exercise: exercise)
+                    TemplateExercise(exercise: exercise)
                 )
             }
+        }
+        .navigationDestination(isPresented: $showingWorkout) {
+            WorkoutView()
         }
     }
 }
@@ -38,19 +49,12 @@ struct TemplateDetailView: View {
     @Previewable @State var template = WorkoutTemplate(
         name: "Push",
         exercises: [
-            WorkoutExercise(exercise: Exercise(name: "Bench Press")),
-            WorkoutExercise(exercise: Exercise(name: "Incline Bench"))
+            TemplateExercise(exercise: Exercise(name: "Bench Press"))
         ]
     )
 
-    @Previewable @State var exerciseLibrary = [
-        Exercise(name: "Bench Press"),
-        Exercise(name: "Incline Bench"),
-        Exercise(name: "Lat Pulldown")
-    ]
-
-    TemplateDetailView(
-        template: $template,
-        exerciseLibrary: $exerciseLibrary
-    )
+    NavigationStack {
+        TemplateDetailView(template: $template)
+            .environmentObject(AppData())
+    }
 }

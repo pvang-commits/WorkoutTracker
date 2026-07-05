@@ -11,6 +11,12 @@
 		980822482FF9A3FC002DB695 /* TemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822472FF9A3E6002DB695 /* TemplateViewModel.swift */; };
 		9808224A2FF9B912002DB695 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822492FF9B90D002DB695 /* AddExerciseView.swift */; };
 		9808224C2FF9BAA7002DB695 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808224B2FF9BAA4002DB695 /* Exercise.swift */; };
+		9808224E2FF9C108002DB695 /* SetTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808224D2FF9C106002DB695 /* SetTag.swift */; };
+		980822502FF9C118002DB695 /* LoggedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808224F2FF9C114002DB695 /* LoggedSet.swift */; };
+		980822522FF9C12E002DB695 /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822512FF9C125002DB695 /* WorkoutExercise.swift */; };
+		980822542FF9C138002DB695 /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822532FF9C135002DB695 /* WorkoutSession.swift */; };
+		980822592FF9D261002DB695 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980822582FF9D25C002DB695 /* WorkoutView.swift */; };
+		9808225B2FF9D405002DB695 /* LoggedSetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808225A2FF9D3FF002DB695 /* LoggedSetRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 		980822472FF9A3E6002DB695 /* TemplateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewModel.swift; sourceTree = "<group>"; };
 		980822492FF9B90D002DB695 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		9808224B2FF9BAA4002DB695 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		9808224D2FF9C106002DB695 /* SetTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTag.swift; sourceTree = "<group>"; };
+		9808224F2FF9C114002DB695 /* LoggedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedSet.swift; sourceTree = "<group>"; };
+		980822512FF9C125002DB695 /* WorkoutExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
+		980822532FF9C135002DB695 /* WorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
+		980822582FF9D25C002DB695 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		9808225A2FF9D3FF002DB695 /* LoggedSetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedSetRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -108,6 +120,10 @@
 		9808223A2FF99EB0002DB695 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				980822532FF9C135002DB695 /* WorkoutSession.swift */,
+				980822512FF9C125002DB695 /* WorkoutExercise.swift */,
+				9808224F2FF9C114002DB695 /* LoggedSet.swift */,
+				9808224D2FF9C106002DB695 /* SetTag.swift */,
 				9808224B2FF9BAA4002DB695 /* Exercise.swift */,
 				980822472FF9A3E6002DB695 /* TemplateViewModel.swift */,
 			);
@@ -117,6 +133,8 @@
 		9808223D2FF99F28002DB695 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9808225A2FF9D3FF002DB695 /* LoggedSetRow.swift */,
+				980822582FF9D25C002DB695 /* WorkoutView.swift */,
 				980822492FF9B90D002DB695 /* AddExerciseView.swift */,
 				980822452FF9A32A002DB695 /* TemplateDetailView.swift */,
 			);
@@ -267,10 +285,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9808224E2FF9C108002DB695 /* SetTag.swift in Sources */,
+				980822542FF9C138002DB695 /* WorkoutSession.swift in Sources */,
+				9808225B2FF9D405002DB695 /* LoggedSetRow.swift in Sources */,
+				980822592FF9D261002DB695 /* WorkoutView.swift in Sources */,
+				980822502FF9C118002DB695 /* LoggedSet.swift in Sources */,
 				980822462FF9A33B002DB695 /* TemplateDetailView.swift in Sources */,
 				9808224A2FF9B912002DB695 /* AddExerciseView.swift in Sources */,
 				980822482FF9A3FC002DB695 /* TemplateViewModel.swift in Sources */,
 				9808224C2FF9BAA7002DB695 /* Exercise.swift in Sources */,
+				980822522FF9C12E002DB695 /* WorkoutExercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

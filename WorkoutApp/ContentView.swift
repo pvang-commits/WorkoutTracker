@@ -1,19 +1,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var templates: [WorkoutTemplate] = []
-    @State private var exerciseLibrary: [Exercise] = []
+    @EnvironmentObject var appData: AppData
     @State private var showingAddTemplate = false
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach($templates) { $template in
+                ForEach($appData.templates) { $template in
                     NavigationLink {
-                        TemplateDetailView(
-                            template: $template,
-                            exerciseLibrary: $exerciseLibrary
-                        )
+                        TemplateDetailView(template: $template)
                     } label: {
                         Text(template.name)
                     }
@@ -29,13 +25,15 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingAddTemplate) {
                 AddTemplateView { name in
-                    templates.append(WorkoutTemplate(name: name))
+                    appData.addTemplate(named: name)
                 }
             }
+            .environmentObject(appData)
         }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AppData())
 }
